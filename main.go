@@ -8,12 +8,8 @@ import (
 	"practicum/visa_forms/germany"
 )
 
-type fillableForm interface {
+type visaForm interface {
 	ScanCountryData()
-	ScanBaseData()
-}
-
-type processableForm interface {
 	GetProcessingDays() int
 	GetCountryName() string
 	PrintForm()
@@ -27,7 +23,7 @@ func main() {
 	fmt.Println("Введите страну назначения:")
 	fmt.Scan(&destinationCountry)
 
-	var form fillableForm
+	var form visaForm
 	switch destinationCountry {
 	case germany.CountryName:
 		form = &germany.Form{}
@@ -40,13 +36,7 @@ func main() {
 		return
 	}
 	form.ScanCountryData()
-	if v, ok := form.(processableForm); ok {
-		PrintResult(v)
-	}
-}
-
-func PrintResult(form processableForm) {
-	processingText := fmt.Sprintf(visa_forms.FinalText, form.GetCountryName(), form.GetProcessingDays())
-	fmt.Println(processingText)
 	form.PrintForm()
+	fmt.Println()
+	fmt.Printf(visa_forms.FinalText, form.GetCountryName(), form.GetProcessingDays())
 }

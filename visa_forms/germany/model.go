@@ -11,5 +11,5 @@ const (
 
 type Form struct {
 	visa_forms.Base
-	GermanLanguageLevel string `json:"german_language_level"`
+	GermanLanguageLevel string `json:"Уровень немецкого языка"`
 }

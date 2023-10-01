@@ -9,6 +9,6 @@ const (
 
 type Form struct {
 	visa_forms.Base
-	Job   string `json:"job"`
-	Hotel string `json:"hotel"`
+	Job   string `json:"Место работы"`
+	Hotel string `json:"Название отеля"`
 }

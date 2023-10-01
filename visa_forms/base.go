@@ -3,12 +3,12 @@ package visa_forms
 import "fmt"
 
 const FinalText = "Заявление принято. " +
-	"Срок обработки заявления в страну %s составляет %d дней"
+	"Срок обработки заявления в страну %s составляет %d дней."
 
 type Base struct {
-	Name       string `json:"name"`
-	Surname    string `json:"surname"`
-	Patronymic string `json:"patronymic"`
+	Name       string `json:"Имя"`
+	Surname    string `json:"Фамилия"`
+	Patronymic string `json:"Отчество"`
 }
 
 func (f *Base) ScanBaseData() {
